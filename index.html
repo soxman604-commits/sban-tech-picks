@@ -14,7 +14,7 @@ header{position:sticky;top:0;background:rgba(11,16,32,.95);backdrop-filter:blur(
 .nav{max-width:1100px;margin:auto;display:flex;align-items:center;justify-content:space-between;padding:14px 20px;flex-wrap:wrap;gap:10px}
 .logo{font-weight:800;font-size:1.3rem;color:var(--text);text-decoration:none}
 .logo span{color:var(--accent)}
-.nav nav a{color:var(--muted);text-decoration:none;margin-left:16px;font-size:.95rem}
+.nav nav a{white-space:nowrap;color:var(--muted);text-decoration:none;margin-left:16px;font-size:.95rem}
 .nav nav a:hover{color:var(--accent)}
 .hero{text-align:center;padding:80px 20px 60px;background:radial-gradient(circle at 30% 20%,rgba(139,92,246,.25),transparent 50%),radial-gradient(circle at 70% 60%,rgba(0,212,255,.18),transparent 50%)}
 .hero h1{font-size:clamp(2rem,5vw,3.2rem);line-height:1.2;margin-bottom:16px}
@@ -54,6 +54,19 @@ h2{font-size:1.8rem;margin-bottom:8px}
 .setup ol{margin-left:20px;font-size:.92rem}
 .setup li{margin-bottom:4px}
 .hero{background:linear-gradient(rgba(11,16,32,.72),rgba(11,16,32,.92)),url(img/ho-hero.webp) center/cover}
+.band{position:relative;padding:72px 0;background:linear-gradient(180deg,rgba(11,16,32,.9) 0%,rgba(11,16,32,var(--ov,.5)) 18%,rgba(11,16,32,var(--ov,.5)) 82%,rgba(11,16,32,.9) 100%),var(--bg,none) center/cover no-repeat;background-color:var(--bg-color,#0b1020)}
+.band>.inner{max-width:1100px;margin:auto;padding:0 20px}
+.band .guide{margin-bottom:0;background:rgba(20,27,51,.9);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);box-shadow:0 18px 50px rgba(0,0,0,.45)}
+.band .featured{background:linear-gradient(180deg,rgba(22,32,74,.93),rgba(20,27,51,.9) 240px)}
+.band .pick{background:rgba(16,22,43,.92)}
+.band .cat{background:rgba(20,27,51,.88);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px)}
+.band .cta{background:linear-gradient(135deg,rgba(26,31,74,.9),rgba(15,42,61,.9));box-shadow:0 18px 50px rgba(0,0,0,.45)}
+.band h2,.band>.inner>.sub,.onbg{text-shadow:0 2px 10px rgba(0,0,0,.85)}
+.band>.inner>.sub,.onbg{color:#c9d1ea}
+.onbg{font-size:.88rem;margin:0 0 22px;display:inline-block;background:rgba(11,16,32,.78);padding:8px 14px;border-radius:10px}
+#setups{scroll-margin-top:80px}
+@media(min-width:900px) and (hover:hover){.band,.hero{background-attachment:fixed}}
+@media(max-width:640px){.band{padding:48px 0}.band .guide{padding:20px}.nav nav{display:flex;overflow-x:auto;max-width:100%;-webkit-overflow-scrolling:touch}.nav nav a{white-space:nowrap}}
 .disclosure{background:#10162b;border-left:4px solid var(--accent2);padding:16px 20px;border-radius:10px;color:var(--muted);font-size:.92rem}
 .cta{text-align:center;background:linear-gradient(135deg,#1a1f4a,#0f2a3d);border-radius:20px;padding:40px 20px}
 footer{text-align:center;color:var(--muted);padding:30px 20px;border-top:1px solid #222b4d;font-size:.9rem}
@@ -64,7 +77,7 @@ footer{text-align:center;color:var(--muted);padding:30px 20px;border-top:1px sol
 <body>
 <header><div class="nav">
 <a class="logo" href="#">Sban <span>Tech Picks</span></a>
-<nav><a href="#home-office">Home Office</a><a href="#phones">Phones</a><a href="#laptops">Laptops</a><a href="#solar">Solar</a><a href="#vr">VR</a><a href="#gadgets">Gadgets</a><a href="#watches">Watches</a><a href="#earbuds">Earbuds</a><a href="#eyewear">Eyewear</a><a href="#copper">Copper</a></nav>
+<nav><a href="#home-office">Home Office</a><a href="#phones">Phones</a><a href="#laptops">Laptops</a><a href="#solar">Solar</a><a href="#vr">VR</a><a href="#gadgets">Gadgets</a><a href="#watches">Watches</a><a href="#earbuds">Earbuds</a><a href="#eyewear">Eyewear</a></nav>
 </div></header>
 
 <section class="hero">
@@ -74,12 +87,9 @@ footer{text-align:center;color:var(--muted);padding:30px 20px;border-top:1px sol
 <a class="btn ghost" href="https://wa.me/260976658622?text=Hi%20Sban%20Tech%20Picks%2C%20I%20need%20advice%20on%20buying%20tech" target="_blank" rel="noopener">Ask us on WhatsApp</a>
 </section>
 
-<section class="wrap" id="featured" style="padding-bottom:10px">
-<p class="note" style="margin:0 0 22px">As an Amazon Associate I earn from qualifying purchases. Links open Amazon US, where you can check the current price and delivery to your country.</p>
 <div id="homeOffice"></div>
-</section>
 
-<section class="wrap">
+<section class="band" id="categories" style="--bg:url(img/bg-cats.webp);--ov:.74"><div class="inner">
 <h2>Pick a category</h2>
 <p class="sub">Start with what you're shopping for.</p>
 <div class="cats">
@@ -93,30 +103,29 @@ footer{text-align:center;color:var(--muted);padding:30px 20px;border-top:1px sol
 <a class="cat" href="#smartwatches"><div class="ic">📲</div>Smartwatches</a>
 <a class="cat" href="#earbuds"><div class="ic">🎧</div>Earbuds</a>
 <a class="cat" href="#eyewear"><div class="ic">🕶️</div>Eyewear</a>
-<a class="cat" href="#copper"><div class="ic">🟠</div>Copper Jewelry</a>
 </div>
-</section>
+</div></section>
 
-<section class="wrap" id="guides" style="padding-top:0">
+<section class="wrap" id="guides" style="padding-bottom:20px">
 <h2>Buying guides</h2>
 <p class="sub">What to check before you pay, plus our top picks.</p>
 <p class="note">As an Amazon Associate I earn from qualifying purchases. Links open Amazon US, where you can check the current price and whether it ships to your country. Photos marked “Illustrative photo” are stock images; see Amazon for the actual product.</p>
-<div id="guideList"></div>
 </section>
+<div id="guideList"></div>
 
-<section class="wrap" style="padding-top:0">
+<section class="band" style="--bg:url(img/bg-cta.webp);--ov:.62"><div class="inner">
 <div class="cta">
 <h2>Want it in Ndola instead?</h2>
 <p class="sub">Sban Technologies at Checha Complex, Ndola sells computers, phones and VR, and supplies solar, generators and fridges on order.</p>
 <a class="btn" href="https://sban-technologies.netlify.app" target="_blank" rel="noopener">Visit Sban Technologies</a>
 </div>
-</section>
+</div></section>
 
-<section class="wrap" style="padding-top:0">
+<section class="wrap">
 <div class="disclosure"><strong>Affiliate disclosure:</strong> As an Amazon Associate I earn from qualifying purchases. Some links on this site are affiliate links. If you buy through them we may earn a small commission at no extra cost to you. It helps keep these guides free, and we only recommend things we'd suggest to a friend.</div>
 </section>
 
-<footer>© <span id="yr"></span> Sban Tech Picks, by Sban Technologies, Ndola, Zambia · WhatsApp 0976 658 622<br><small>Illustrative stock photos from Pexels. Home office photos by Alpha En, Eduardo Rosas, Gül Işık, Helena Lopes, Josh Sorenson, Kaboompics.com, Kindel Media, MART PRODUCTION, Matheus Bertelli, minhphuc .workspace, Oladimeji Ajegbile, Pramod Tiwari, Standsome Worklifestyle.</small></footer>
+<footer>© <span id="yr"></span> Sban Tech Picks, by Sban Technologies, Ndola, Zambia · WhatsApp 0976 658 622<br><small>Illustrative product and background photos from <a href="https://www.pexels.com" target="_blank" rel="noopener">Pexels</a>, by ALOK DAS, Alpha En, Anastasiya Badun, Andrei L, Andrey Matveev, Burst, Eduardo Rosas, EVG Kowalievska, Gül Işık, Helena Lopes, indra projects, Josh Sorenson, Kaboompics.com, Kindel Media, MART PRODUCTION, Matheus Bertelli, minhphuc .workspace, Oladimeji Ajegbile, Pramod Tiwari, ready made, Robert So, Standsome Worklifestyle, Tima Miroshnichenko, Toni Ferreira.</small></footer>
 <a class="wa" href="https://wa.me/260976658622" target="_blank" rel="noopener" aria-label="WhatsApp">💬</a>
 
 <script>
@@ -128,7 +137,7 @@ const pickHTML=p=>`<div class="pick">${p.img?`<div class="pimg${p.illus?' illus'
 (()=>{const byKey={};HOME.groups.forEach(g=>g.picks.forEach(p=>byKey[p.key]=p));
  const setups=SETUPS.map(s=>`<div class="setup"><span class="tag">${s.tier}</span><h4>${s.title}</h4><p>${s.desc}</p><ol>${s.items.map(k=>`<li><a href="${byKey[k].link}" target="_blank" rel="nofollow sponsored noopener">${byKey[k].name}</a></li>`).join('')}</ol></div>`).join('');
  const groups=HOME.groups.map(g=>`<h4 class="grp">${g.title}</h4><div class="picks">${g.picks.map(pickHTML).join('')}</div>`).join('');
- document.getElementById('homeOffice').innerHTML=`<div class="guide featured" id="${HOME.id}"><span class="feat">Featured</span><h3>${HOME.icon} ${HOME.title}</h3><p class="sub" style="margin-bottom:0">${HOME.intro}</p><ul>${HOME.tips.map(t=>`<li>${t}</li>`).join('')}</ul><h3 class="bys" id="setups">🧰 Build your setup</h3><p class="sub" style="margin-bottom:14px">Three ready-made shopping lists. Tap any item to see it on Amazon.</p><div class="setups">${setups}</div>${groups}</div>`;})();
+ document.getElementById('homeOffice').innerHTML=`<section class="band" style="--bg:url(img/bg-home.webp)"><div class="inner"><p class="note onbg">As an Amazon Associate I earn from qualifying purchases. Links open Amazon US, where you can check the current price and delivery to your country.</p><div class="guide featured" id="${HOME.id}"><span class="feat">Featured</span><h3>${HOME.icon} ${HOME.title}</h3><p class="sub" style="margin-bottom:0">${HOME.intro}</p><ul>${HOME.tips.map(t=>`<li>${t}</li>`).join('')}</ul></div></div></section><section class="band" style="--bg:url(img/bg-setups.webp)"><div class="inner"><div class="guide" id="setups"><h3>🧰 Build your setup</h3><p class="sub" style="margin-bottom:14px">Three ready-made shopping lists. Tap any item to see it on Amazon.</p><div class="setups">${setups}</div></div></div></section><section class="band" style="--bg:url(img/bg-homepicks.webp)"><div class="inner"><div class="guide featured" id="home-office-picks"><h3>🏠 Home office picks</h3>${groups}</div></div></section>`;})();
 /* ===== EDIT HERE: add affiliate links to each pick's "link" field ===== */
 const GUIDES = [
  {id:"phones", icon:"📱", title:"Phones", intro:"Most people overpay for features they never use. Here's what actually matters.",
@@ -149,13 +158,14 @@ const GUIDES = [
  {"id": "watches", "icon": "⌚", "title": "Watches", "intro": "Everyday and dress watches that look sharp without a fuss.", "tips": ["Check the case size (in mm) so it suits your wrist.", "Leather straps look smart; resin and metal handle daily wear better.", "Read the water resistance rating before wearing it to wash hands or swim.", "Check strap length and how easy it is to resize."], "picks": [{"tag": "Lorciix", "name": "Minimalist Black Octagonal Watch", "desc": "All-black 40mm quartz watch with a resin bracelet.", "link": "https://www.amazon.com/dp/B0G65MBPS1?tag=sbantechnol0f-20", "img": "img/lorciix-watch.webp"}, {"tag": "OLEVS", "name": "Big Face Chronograph Watch", "desc": "Large, easy-to-read chronograph dial on a leather strap. Pick the colour on Amazon.", "link": "https://www.amazon.com/dp/B09VPL4B9P?tag=sbantechnol0f-20", "img": "img/olevs-chronograph.webp"}, {"tag": "Miykon", "name": "Vintage Tank Dress Watch", "desc": "Square dial with Roman numerals on a genuine leather strap.", "link": "https://www.amazon.com/dp/B0D55K9FQB?tag=sbantechnol0f-20", "img": "img/miykon-tank.webp"}]},
  {"id": "smartwatches", "icon": "📲", "title": "Smartwatches", "intro": "Notifications, step counts and calls on your wrist. Match the watch to your phone.", "tips": ["Apple Watch needs an iPhone. Galaxy Watch is made for Android phones.", "Budget brands like Fitpolo and Amazfit work with both Android and iPhone.", "An AMOLED screen is brighter and easier to read outdoors.", "Check battery life: some last a day, others a week or more."], "picks": [{"tag": "Fitpolo", "name": "Fitpolo 1.85\" AMOLED Smart Watch", "desc": "Large AMOLED screen and comes with two bands.", "link": "https://www.amazon.com/dp/B0FL6XZXDK?tag=sbantechnol0f-20", "img": "img/fitpolo-185.webp"}, {"tag": "Fitpolo", "name": "Fitpolo 1.32\" Round Smart Watch", "desc": "Round AMOLED face in rose gold, with Bluetooth calling.", "link": "https://www.amazon.com/dp/B0DFM5C66G?tag=sbantechnol0f-20", "img": "img/fitpolo-132-rosegold.webp"}, {"tag": "Apple", "name": "Apple Watch Series 11", "desc": "GPS, 42mm. Works with iPhone.", "link": "https://www.amazon.com/dp/B0FQF9ZX7P?tag=sbantechnol0f-20", "img": "img/stock-smartwatch.webp", "illus": true}, {"tag": "Samsung", "name": "Samsung Galaxy Watch8", "desc": "40mm, Bluetooth, Graphite. Pairs with Android phones.", "link": "https://www.amazon.com/dp/B0F7QD4HSD?tag=sbantechnol0f-20", "img": "img/stock-smartwatch.webp", "illus": true}, {"tag": "Amazfit", "name": "Amazfit Bip 6", "desc": "46mm, 1.97\" AMOLED display and built-in GPS. Works with Android and iPhone.", "link": "https://www.amazon.com/dp/B0DYJKTHYF?tag=sbantechnol0f-20", "img": "img/stock-smartwatch.webp", "illus": true}]},
  {"id": "earbuds", "icon": "🎧", "title": "Earbuds", "intro": "Wireless earbuds for calls, music and noisy buses.", "tips": ["Noise cancelling (ANC) blocks out traffic and generator noise.", "Look at total battery life including the charging case.", "A good fit matters more than anything. Try the different ear tips.", "Check the app for EQ settings and firmware updates."], "picks": [{"tag": "TOZO", "name": "TOZO NC3 Noise Cancelling Earbuds", "desc": "Hybrid noise cancelling with an LED battery display on the case.", "link": "https://www.amazon.com/dp/B0DGKWQMSM?tag=sbantechnol0f-20", "img": "img/tozo-nc3.webp"}, {"tag": "Samsung", "name": "Samsung Galaxy Buds4 Pro", "desc": "Samsung's premium earbuds, in black.", "link": "https://www.amazon.com/dp/B0G1PJLWLZ?tag=sbantechnol0f-20", "img": "img/galaxy-buds4-pro.webp"}, {"tag": "soundcore", "name": "soundcore P20i by Anker", "desc": "Simple, budget-friendly true wireless earbuds.", "link": "https://www.amazon.com/dp/B0BTYCRJSS?tag=sbantechnol0f-20", "img": "img/stock-earbuds.webp", "illus": true}, {"tag": "soundcore", "name": "soundcore P30i by Anker", "desc": "Noise cancelling earbuds with a 2-in-1 case that doubles as a phone stand.", "link": "https://www.amazon.com/dp/B0CRTR3PMF?tag=sbantechnol0f-20", "img": "img/stock-earbuds.webp", "illus": true}]},
- {"id": "eyewear", "icon": "🕶️", "title": "Eyewear", "intro": "Sunglasses, screen glasses and smart glasses. These links open an Amazon search so you can compare sellers and styles.", "tips": ["Check the lens size and frame width so they fit your face.", "For sunglasses, look for UV400 protection in the listing.", "Packs of screen glasses give you a spare for the office or car.", "Smart glasses: check they work with your phone before you buy."], "picks": [{"tag": "Smart glasses", "name": "Ray-Ban Meta Wayfarer Smart Glasses", "desc": "Matte black Wayfarer frames with a built-in camera and open-ear audio.", "link": "https://www.amazon.com/s?k=ray-ban+meta+wayfarer+matte+black&tag=sbantechnol0f-20", "img": "img/rayban-meta.webp"}, {"tag": "Sunglasses", "name": "Retro Square Aviator Sunglasses", "desc": "Orange/amber lenses on a black frame.", "link": "https://www.amazon.com/s?k=retro+square+aviator+sunglasses+orange+lens&tag=sbantechnol0f-20", "img": "img/aviator-orange.webp"}, {"tag": "Screen glasses", "name": "Blue Light Glasses, 2-Pack", "desc": "Square frames in clear and black.", "link": "https://www.amazon.com/s?k=blue+light+glasses+2+pack+square+clear+black&tag=sbantechnol0f-20", "img": "img/bluelight-2pack.webp"}, {"tag": "Screen glasses", "name": "Blue Light Glasses, 3-Pack", "desc": "Round frames in black, tortoiseshell and clear.", "link": "https://www.amazon.com/s?k=blue+light+blocking+glasses+3+pack+round&tag=sbantechnol0f-20", "img": "img/bluelight-3pack.webp"}]},
- {"id": "copper", "icon": "🟠", "title": "Copper Jewelry", "intro": "Warm copper earrings, rings, necklaces and bracelets, a nod to Zambia's Copperbelt.", "tips": ["Solid copper naturally darkens over time; a little polish brings the shine back.", "Copper can leave a green mark on skin. Keeping it dry helps reduce this.", "Check ring sizes and necklace lengths on the listing before you order.", "Store copper in a dry bag or box to slow tarnish."], "picks": [{"tag": "Earrings", "name": "Handmade Copper Haida Beaver Dangle Earrings", "desc": "Northwest Coast totem design by Front Line Jewelry.", "link": "https://www.amazon.com/dp/B0FJDY6JGG?tag=sbantechnol0f-20", "img": "img/stock-earrings.webp", "illus": true}, {"tag": "Earrings", "name": "Antiqued Copper Hoop Dangle Earrings", "desc": "Handmade by Kathy Bankston, with sterling silver ear wires.", "link": "https://www.amazon.com/dp/B0FTTFG59V?tag=sbantechnol0f-20", "img": "img/stock-earrings-hoops.webp", "illus": true}, {"tag": "Rings", "name": "Ivy & Bauble 3mm Solid Copper Ring", "desc": "Pure uncoated copper comfort-fit band, crafted in the USA.", "link": "https://www.amazon.com/dp/B086H8JT3V?tag=sbantechnol0f-20", "img": "img/stock-rings.webp", "illus": true}, {"tag": "Rings", "name": "Precious Stars 8mm Hammered Copper Ring", "desc": "Solid copper band with a rustic matte finish. Unisex.", "link": "https://www.amazon.com/dp/B0753TVG1L?tag=sbantechnol0f-20", "img": "img/stock-rings-jeweler.webp", "illus": true}, {"tag": "Necklaces", "name": "Solid Copper Chain Necklace", "desc": "1/4 inch wide chain with a copper lobster clasp, several lengths.", "link": "https://www.amazon.com/dp/B09SF29J63?tag=sbantechnol0f-20", "img": "img/stock-necklace.webp", "illus": true}, {"tag": "Necklaces", "name": "Heavenly Metals Copper Cuban Link Chain", "desc": "Cuban link chain in a range of widths and lengths.", "link": "https://www.amazon.com/dp/B0FF8HVTF7?tag=sbantechnol0f-20", "img": "img/stock-necklace-chain.webp", "illus": true}, {"tag": "Bracelets", "name": "MagnetRX Twisted Copper Cuff", "desc": "Adjustable twisted copper cuff for men and women.", "link": "https://www.amazon.com/dp/B081ZM79DB?tag=sbantechnol0f-20", "img": "img/stock-bracelets.webp", "illus": true}, {"tag": "Bracelets", "name": "Sabona Classic Copper Bracelet", "desc": "Classic copper wristband, size Large.", "link": "https://www.amazon.com/dp/B0002LXTMI?tag=sbantechnol0f-20", "img": "img/stock-bracelets-hands.webp", "illus": true}]}
+ {"id": "eyewear", "icon": "🕶️", "title": "Eyewear", "intro": "Sunglasses, screen glasses and smart glasses. These links open an Amazon search so you can compare sellers and styles.", "tips": ["Check the lens size and frame width so they fit your face.", "For sunglasses, look for UV400 protection in the listing.", "Packs of screen glasses give you a spare for the office or car.", "Smart glasses: check they work with your phone before you buy."], "picks": [{"tag": "Smart glasses", "name": "Ray-Ban Meta Wayfarer Smart Glasses", "desc": "Matte black Wayfarer frames with a built-in camera and open-ear audio.", "link": "https://www.amazon.com/s?k=ray-ban+meta+wayfarer+matte+black&tag=sbantechnol0f-20", "img": "img/rayban-meta.webp"}, {"tag": "Sunglasses", "name": "Retro Square Aviator Sunglasses", "desc": "Orange/amber lenses on a black frame.", "link": "https://www.amazon.com/s?k=retro+square+aviator+sunglasses+orange+lens&tag=sbantechnol0f-20", "img": "img/aviator-orange.webp"}, {"tag": "Screen glasses", "name": "Blue Light Glasses, 2-Pack", "desc": "Square frames in clear and black.", "link": "https://www.amazon.com/s?k=blue+light+glasses+2+pack+square+clear+black&tag=sbantechnol0f-20", "img": "img/bluelight-2pack.webp"}, {"tag": "Screen glasses", "name": "Blue Light Glasses, 3-Pack", "desc": "Round frames in black, tortoiseshell and clear.", "link": "https://www.amazon.com/s?k=blue+light+blocking+glasses+3+pack+round&tag=sbantechnol0f-20", "img": "img/bluelight-3pack.webp"}]}
 ];
 const list=document.getElementById('guideList');
+const OV={gadgets:.72,earbuds:.72,eyewear:.66,phones:.6,laptops:.6};
+const BG={phones:'bg-phones',laptops:'bg-laptops',solar:'bg-solar',vr:'bg-vr',gadgets:'bg-gadgets',watches:'bg-watches',smartwatches:'bg-smartwatches',earbuds:'bg-earbuds',eyewear:'bg-eyewear'};
 GUIDES.forEach(g=>{
  const picks=g.picks.map(pickHTML).join('');
- list.insertAdjacentHTML('beforeend',`<div class="guide" id="${g.id}"><h3>${g.icon} ${g.title}</h3><p class="sub" style="margin-bottom:0">${g.intro}</p><ul>${g.tips.map(t=>`<li>${t}</li>`).join('')}</ul><div class="picks">${picks}</div></div>`);
+ list.insertAdjacentHTML('beforeend',`<section class="band"${BG[g.id]?` style="--bg:url(img/${BG[g.id]}.webp)${OV[g.id]?`;--ov:${OV[g.id]}`:''}"`:''}><div class="inner"><div class="guide" id="${g.id}"><h3>${g.icon} ${g.title}</h3><p class="sub" style="margin-bottom:0">${g.intro}</p><ul>${g.tips.map(t=>`<li>${t}</li>`).join('')}</ul><div class="picks">${picks}</div></div></div></section>`);
 });
 document.getElementById('yr').textContent=new Date().getFullYear();
 </script>
